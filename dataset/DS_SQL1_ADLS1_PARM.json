@@ -1,0 +1,45 @@
+{
+	"name": "DS_SQL1_ADLS1_PARM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL1_ADLS1_PARM",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DEST_FILE_SYSTEM": {
+				"type": "string"
+			},
+			"DEST_DIRECTORY": {
+				"type": "string"
+			},
+			"DEST_FILENAME": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().DEST_FILENAME",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().DEST_DIRECTORY",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().DEST_FILE_SYSTEM",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

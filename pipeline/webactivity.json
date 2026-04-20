@@ -1,0 +1,38 @@
+{
+	"name": "webactivity",
+	"properties": {
+		"description": "to call pipeline in different data factory",
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://management.azure.com/subscriptions/6a56e793-86e8-4d61-ab8d-602b91f43a6a/resourceGroups/AVIRG2026/providers/Microsoft.DataFactory/factories/AVIAZUREDF2027/pipelines/wait_pipeline_5/createRun?api-version=2018-06-01",
+					"authentication": {
+						"type": "ServicePrincipal",
+						"userTenant": "33b3aa11-fb22-4543-bf2f-393eb6323a24",
+						"username": "71e61dd5-7284-44b6-9dbb-978b27e91eaa",
+						"resource": "https://management.azure.com",
+						"password": {
+							"type": "SecureString",
+							"value": "**********"
+						}
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-04-18T01:41:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

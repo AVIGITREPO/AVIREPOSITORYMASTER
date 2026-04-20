@@ -1,0 +1,102 @@
+{
+	"name": "SWITCH",
+	"properties": {
+		"description": "BASICALLY IT COMPARES THE VALUES AND EXECUTES THE RESPECTIVE CASE . IT IS CASE SENSITIVE WHILE CHECKING.",
+		"activities": [
+			{
+				"name": "Switch1",
+				"type": "Switch",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@variables('NAME1')",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "AVI",
+							"activities": [
+								{
+									"name": "Execute Pipeline1",
+									"type": "ExecutePipeline",
+									"dependsOn": [],
+									"policy": {
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"pipeline": {
+											"referenceName": "getmetadata",
+											"type": "PipelineReference"
+										},
+										"waitOnCompletion": true
+									}
+								}
+							]
+						},
+						{
+							"value": "AVI1",
+							"activities": [
+								{
+									"name": "Wait1",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
+						},
+						{
+							"value": "AVI3",
+							"activities": [
+								{
+									"name": "Wait2",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 3
+									}
+								}
+							]
+						},
+						{
+							"value": "AVI2",
+							"activities": [
+								{
+									"name": "Wait3",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 2
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"NAME1": {
+				"type": "String",
+				"defaultValue": "AVI"
+			},
+			"NAME2": {
+				"type": "String",
+				"defaultValue": "AVI2"
+			},
+			"NAME3": {
+				"type": "String",
+				"defaultValue": "AVI3"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-04-09T07:17:35Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

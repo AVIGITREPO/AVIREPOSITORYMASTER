@@ -1,0 +1,17 @@
+{
+	"name": "DS_SQL2_SQL1_PARM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_DATABASE",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "rootlib",
+			"table": "websites6"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
