@@ -1,0 +1,38 @@
+{
+	"name": "DS_ADLS1_PARM_copy1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS1_ADLS2_PARM",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FILE_SYSTEM_SRC": {
+				"type": "string"
+			},
+			"DIRECTORY_SRC": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().DIRECTORY_SRC",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().FILE_SYSTEM_SRC",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

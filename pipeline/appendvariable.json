@@ -1,0 +1,55 @@
+{
+	"name": "appendvariable",
+	"properties": {
+		"description": "Append Variables Only Supports Adding To 'Array' Type Variables. to see new values set variable is used. ",
+		"activities": [
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "appendvar",
+					"value": "4"
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Append variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "newappendvar",
+					"value": {
+						"value": "@variables('appendvar')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"appendvar": {
+				"type": "Array",
+				"defaultValue": [
+					"1",
+					"2",
+					"3"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-04-08T08:31:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
