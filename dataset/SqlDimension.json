@@ -1,0 +1,21 @@
+{
+	"name": "SqlDimension",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_scd_sql",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Table": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "customer"
+		}
+	}
+}
