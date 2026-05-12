@@ -1,0 +1,15 @@
+{
+	"name": "AVIAZUREDF20260425",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "826f0440-7d1e-4708-91b0-e5a5adf2bc65",
+		"tenantId": "b4b12aff-782c-4f92-8156-2a7f403c0136"
+	}
+}
