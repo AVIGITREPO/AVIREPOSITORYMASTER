@@ -1,0 +1,9 @@
+{
+	"name": "AVIAZUREDF2026",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "83a34dab-bb2a-4641-bf38-9d4e4c6934b6",
+		"tenantId": "33b3aa11-fb22-4543-bf2f-393eb6323a24"
+	}
+}

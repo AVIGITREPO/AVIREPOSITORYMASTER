@@ -1,0 +1,124 @@
+{
+	"name": "ADLS_ADLS_PARM",
+	"properties": {
+		"description": "PARAMETERISED ADLS TO ADLS COPY ",
+		"activities": [
+			{
+				"name": "COPY_PARM_ADLS1_ADLS2",
+				"description": "PARAMTERISED COPY ACTIVITY FOR ADLS TO ADLS ",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_ADLS1_PARM",
+						"type": "DatasetReference",
+						"parameters": {
+							"FILE_SYSTEM_SRC": {
+								"value": "@pipeline().parameters.SRC_FILE_SYSTEM",
+								"type": "Expression"
+							},
+							"DIRECTORY_SRC": {
+								"value": "@pipeline().parameters.SRC_DIRECTORY",
+								"type": "Expression"
+							},
+							"FILENAME_SRC": {
+								"value": "@pipeline().parameters.SRC_FILENAME",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_ADLS2_ADLS1_PARM",
+						"type": "DatasetReference",
+						"parameters": {
+							"FILE_SYSTEM_DEST": {
+								"value": "@pipeline().parameters.DEST_FILE_SYSTEM",
+								"type": "Expression"
+							},
+							"DIRECTOTY_DEST": {
+								"value": "@pipeline().parameters.DEST_DIRECTOTY",
+								"type": "Expression"
+							},
+							"FILENAME_DEST": {
+								"value": "@pipeline().parameters.DEST_FILENAME",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"SRC_FILE_SYSTEM": {
+				"type": "string",
+				"defaultValue": "rootfolder"
+			},
+			"SRC_DIRECTORY": {
+				"type": "string",
+				"defaultValue": "TEST_INPUT"
+			},
+			"SRC_FILENAME": {
+				"type": "string",
+				"defaultValue": "customers-100000.csv"
+			},
+			"DEST_FILE_SYSTEM": {
+				"type": "string",
+				"defaultValue": "rootfolder"
+			},
+			"DEST_DIRECTOTY": {
+				"type": "string",
+				"defaultValue": "TEST_OUTPUT"
+			},
+			"DEST_FILENAME": {
+				"type": "string",
+				"defaultValue": "customers-100000.csv"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-04-14T10:53:50Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

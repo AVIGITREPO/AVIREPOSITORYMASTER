@@ -1,0 +1,33 @@
+{
+	"name": "wait",
+	"properties": {
+		"activities": [
+			{
+				"name": "delay_5",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": {
+						"value": "@pipeline().parameters.wait_parm",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"wait_parm": {
+				"type": "int"
+			}
+		},
+		"variables": {
+			"wait": {
+				"type": "String",
+				"defaultValue": "5"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-04-08T13:12:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

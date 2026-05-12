@@ -1,0 +1,58 @@
+{
+	"name": "setvariable",
+	"properties": {
+		"description": "It updates the variable value in the runtime",
+		"activities": [
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": {
+						"value": "@variables('setvar')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "setvar",
+					"value": {
+						"value": "@pipeline().parameters.var",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"var": {
+				"type": "int"
+			}
+		},
+		"variables": {
+			"setvar": {
+				"type": "Integer",
+				"defaultValue": 5
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-04-08T09:15:48Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
