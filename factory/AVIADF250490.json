@@ -1,0 +1,15 @@
+{
+	"name": "AVIADF250490",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7ed94b5c-f148-48dd-b51a-b1ad30b9e59f",
+		"tenantId": "84b7b6c0-5d3a-445b-afd3-0eb41e136c8c"
+	}
+}
